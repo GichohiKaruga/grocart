@@ -1,0 +1,63 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <h4 class="card-title">Detail</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-category text-gray">Name: {{supplier.name}}</h5>
+                        <h6 class="card-title">ID: {{supplier.id}}</h6><br>
+                        <h6>Phone: {{supplier.phone}}<br/>
+                            Email : {{supplier.email}} <br/>
+                            Location : {{supplier.location['country'] + ',' + supplier.location['region']}}<br/>
+                        </h6>
+                        <p class="card-description">
+                            {{supplier.type}}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <h4 class="card-title">Products</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="material-datatables">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td><b>Name</b></td>
+                                    <td><b>Unit</b></td>
+                                    <td><b>Currency</b></td>
+                                    <td><b>Price</b></td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let orgitem  of orgitems">
+                                    <td>{{orgitem.item['name']}}</td>
+                                    <td>{{orgitem.unit}}</td>
+                                    <td>{{orgitem.currency}}</td>
+                                    <td>{{orgitem.price}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

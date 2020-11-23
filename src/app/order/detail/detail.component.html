@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <h4 class="card-title">Orders</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar
+                            <a class="btn btn-rose btn-link btn-lg" [routerLink]="['/user/add']">Add User</a> -->
+                            <button mat-raised-button type="submit" class="btn btn-rose" [routerLink]="['add']">Add Order</button>
+                            <h4>Order# {{id}}</h4>
+                        </div>
+                        <div class="material-datatables">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Currency</th>
+                                    <th>Unit</th>
+                                    <th>Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let orderitem  of orderitems">
+                                    <td>{{orderitem.item}}</td>
+                                    <td>{{orderitem.quantity}}</td>
+                                    <td>{{orderitem.currency}}</td>
+                                    <td>{{orderitem.unit}}</td>
+                                    <td>{{orderitem.price}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>

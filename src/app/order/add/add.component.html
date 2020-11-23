@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">add_box</i>
+                        </div>
+                        <h4 class="card-title">Add Order</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form role="form" [formGroup]="orderGroup" (ngSubmit)="sendToServer()">
+                            <mat-form-field>
+                                <mat-select placeholder="Products"  formControlName="itemid">
+                                    <mat-option *ngFor="let item of items" [value]="item.id">
+                                        {{ item.name }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-select placeholder="Suppliers" formControlName="id">
+                                    <mat-option *ngFor="let organization of suppliers" [value]="organization.id">
+                                        {{ organization.name }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Quantity" formControlName="quantity">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Unit" formControlName="unit">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Currency" formControlName="currency">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Price" formControlName="price">
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <div class="card-footer ">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-rose" (click)="add()">Add Product</button>
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-rose" (click)="sendToServer()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

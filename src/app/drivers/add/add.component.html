@@ -1,0 +1,66 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">add_box</i>
+                        </div>
+                        <h4 class="card-title">Add Farm</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form role="form" [formGroup]="driverGroup" (ngSubmit)="sendToServer()">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="National ID" formControlName="id">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Name" formControlName="name">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <textarea input matInput placeholder="Description" formControlName="description"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Size" formControlName="size">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-select placeholder="Country" formControlName="country">
+                                    <mat-option *ngFor="let country of countries" [value]="country.name">
+                                        {{ country.name }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Region" formControlName="region">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Territory" formControlName="territory">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Zone" formControlName="zone">
+                            </mat-form-field>
+
+                            <div class="form-group">
+                                <!-- <label for="file">Choose</label> -->
+                                <button type="button" mat-raised-button (click)="fileInput.click()">Add Photo</button>
+                                <input hidden formControlName="image" (change)="onFileSelected()" #fileInput type="file" id="file" multiple="" (change)="onFileChange($event)">
+                                <!-- <input formControlName="file" id="file" type="file" class="form-control" multiple="" (change)="onFileChange($event)">
+                                <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.file.errors.required">File is required.</div>
+                                </div> -->
+
+                            </div>
+
+                            <img *ngFor='let url of images'  [src]="url" height="150" width="200px" style="margin: 3px;"> <br/>
+                        </form>
+                    </div>
+                    <div class="card-footer ">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-rose" (click)="sendToServer()">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

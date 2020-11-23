@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <h4 class="card-title">Roles</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar
+                            <a class="btn btn-rose btn-link btn-lg" [routerLink]="['/user/add']">Add User</a> -->
+                            <button mat-raised-button type="submit" class="btn btn-rose" (click)="add()">Add Role</button>
+
+                        </div>
+                        <div class="material-datatables">
+                            <div class="row">
+                                <label class=" col-form-label">Search</label>
+                                <div class="col-sm-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput (keyup)="applyFilter($event)" placeholder="name">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let role of roles">
+                                    <td>{{role.name}}</td>
+                                    <td>{{role.description}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>

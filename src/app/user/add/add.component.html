@@ -1,0 +1,61 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">add_box</i>
+                        </div>
+                        <h4 class="card-title">Add User</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form role="form" [formGroup]="userGroup" (ngSubmit)="sendToServer()">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="First Name" formControlName="firstname">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Last Name" formControlName="lastname">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type = "password" placeholder="Password" formControlName="password">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Phone Number" formControlName="phone">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-select placeholder="Gender" formControlName="gender">
+                                    <mat-option *ngFor="let gender of genders" [value]="gender">
+                                        {{ gender }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Email" formControlName="email">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-select placeholder="Roles" formControlName="roles">
+                                    <mat-option *ngFor="let role of roles" [value]="role.name" multiple>
+                                        {{ role.name }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-select placeholder="Organization" formControlName="organization">
+                                    <mat-option *ngFor="let org of suppliers" [value]="org.id">
+                                        {{ org.name }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <div class="card-footer ">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-rose" (click)="sendToServer()">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

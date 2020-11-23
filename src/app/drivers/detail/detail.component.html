@@ -1,0 +1,30 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card card-signup">
+                    <div align="center" class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="{{driver.photos[0]}}" width="90%"/>
+                        </a>
+                    </div>
+                    <div class="card-header card-header-icon card-header-rose">
+                        <div class="card-icon">
+                            <i class="material-icons">perm_identity</i>
+                        </div>
+                        <h4 class="card-title">{{driver.name}}</h4>
+                        <h6 class="card-title">{{driver.location['country'] + ' ' + driver.location['zone']}}</h6>
+
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            {{driver['description']}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
